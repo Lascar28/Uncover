@@ -1,0 +1,391 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../../Fonts/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Lato';
+    src: url(../../Fonts/Lato-Regular.ttf);
+}
+html{
+    scroll-behavior: smooth;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    background: #0B0C0C;
+}
+/***************************** PAGE ACCUEIL ********************************/
+
+/***************** NAVBAR ***********************/
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: #020202;
+    height: 70px;
+    z-index: 100;
+}
+nav .logo{
+    padding: 20px 35px;
+}
+ nav ul{
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+   
+}
+nav  li{
+    margin-right: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .9rem;
+}
+nav li a{
+    color: #ece4d1c5;
+    font-weight: 500;
+    transition: .5s;
+    position: relative;
+}
+nav li a:hover{
+    color:#FBC115;
+}
+nav li a::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    border-radius: 2px;
+    background: #FBC115;
+    box-shadow: 0 0 5px #FBC115, 0 0 25px rgb(251, 193, 21);
+    top: 100%;
+    left: 0;
+    transition: .5s;
+}
+
+nav li:hover a::before{
+    width: 50%;
+    transform: translateX(100%);
+}
+nav li a span{
+    color: #1D1C1C;
+    font-weight: 600;
+    transition: .5s;
+}
+nav li a span:hover{
+    color: #FBC115;
+}
+
+nav form{
+    padding: 12px;
+}
+nav #search{
+    margin-right: 20px;
+    width: 100%;
+    padding: 12px ;
+    background: none;
+    border: 1px solid #E7E2D7;
+    outline:none;
+    transition: .3s;
+    color: #E7E2D7;
+}
+
+
+/****************************  HEADER    **************************/
+.header{
+    background: url(../../Images/dune-banner.jpeg) center/cover;   
+    min-height: 100vh;
+    position: relative;
+}
+.header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.26) 0%, rgba(8,8,8,0.05926120448179273) 50%, rgba(25,25,25,0) 100%);
+
+}
+
+#details {
+    padding: 70px;
+    z-index: 100;
+    color: #E7E2D7;
+    max-width: 500px; 
+    min-height: 400px;
+}
+#details h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 5rem;
+    margin-bottom: 15px; 
+}
+#details h3 {
+    margin-top: 10px;
+    font-size: .9rem
+}
+
+#details h3 span {
+    font-weight: 600;
+}
+
+#details p {
+    margin-top: 40px;
+    line-height: 1.3; 
+}
+
+/****************** SECTION PROGRAMME FILM *****************/
+.section-container {
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    margin-top: 30px;
+}
+.section{
+    padding: 40px;
+
+}
+.section h2{
+    color: #E7E2D7;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.375rem;
+}
+.section h3{
+    color: #E7E2D7;
+    font-size: .9rem;
+    text-transform: uppercase;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+.section p{
+    padding: 10px;
+    color: #E7E2D7;
+    font-family: 'Lato', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;
+}
+
+.card {
+    width: 300px; 
+    margin: 10px; 
+    background: rgb(29, 28, 28);
+    border-radius: 10px;
+    gap: 10px;
+    box-shadow: -1px 2px 20px 9px rgba(25,25,25,0.75);
+    -webkit-box-shadow: -1px 2px 20px 9px rgba(25,25,25,0.75);
+    -moz-box-shadow: -1px 2px 20px 9px rgba(25,25,25,0.75);
+}
+.card img {
+    width: 100%; 
+    height: auto; 
+    max-height: 300px;
+    padding: 15px;
+    object-fit: cover;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 22px;
+    text-align: center;
+}
+.button .btn {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .4s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .8rem;
+}
+.button .btn-reserver{
+    background: #FBC115;
+    color: #1D1C1C;
+    font-weight: 700;
+}
+.button .btn-reserver:hover{
+    box-shadow: 0 0 5px #FBC115, 0 0 25px rgb(251, 193, 21);
+    color: #1D1C1C;
+}
+.button .btn-detail{
+    border: 1px solid #FBC115;
+    background: none;
+    color: #E7E2D7;
+    font-weight: 700;
+}
+.button .btn-detail:hover{
+    box-shadow: 0 0 5px #FBC115, 0 0 25px #FBC115;
+    color: #E7E2D7;
+    background: none;
+}
+
+/************************ FOOTER *********************/
+
+.footer{
+    background-color: #020202;
+    padding: 35px;
+    height: 200px;
+}
+.nav-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-footer ul{
+    margin-right: 450px;
+}
+.nav-footer .logo{
+    height:  65px;
+   
+}
+
+/*******************************  PAGE RESERVATION ************************************/
+.reservation-container{
+    padding: 45px;
+    display: flex;
+}
+.film-details{
+    display: flex;
+    align-items: flex-start;
+}
+.film-details img {
+    width: 300px; 
+    height: 400px; 
+    padding: 15px;
+    object-fit: cover; 
+}
+
+.film-details h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #E7E2D7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+.film-details p{
+    color: #E7E2D7;
+    font-size: .8rem;
+    line-height: 22px;
+    margin-top: 12px;
+}
+.film-details p span{
+    font-weight: 600;
+}
+.detail{
+    width: 50%;
+    padding-left: 15px;
+    margin-top: 12px;
+}
+.synopsis{
+    margin-top: 20px;
+}
+
+.form-reservation{
+    border: 1px solid #E7E2D7;
+    padding: 35px;
+    width: 50%; 
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.form-reservation form {
+    display: flex;
+    flex-direction: column;
+}
+.form-reservation label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: .8rem;
+    color: #E7E2D7;
+}
+.form-reservation input[type="number"],
+.form-reservation input[type="text"] {
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #E7E2D7;
+    background: none;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+.form-reservation input[type="submit"] {
+    background-color: #FBC115;
+    color: #1D1C1C;
+    font-weight: 700;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-reservation input[type="submit"]:hover {
+    box-shadow: 0 0 5px #FBC115, 0 0 25px #FBC115;
+}
+
+/************************************** PAGE DETAIL ********************************/
+.film-detail{
+    display: flex;
+    align-items: flex-start;
+}
+.film-detail img {
+    width: 300px; 
+    height: 400px; 
+    padding: 15px;
+    object-fit: cover; 
+}
+
+.film-detail h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #E7E2D7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+.film-detail p{
+    color: #E7E2D7;
+    font-size: .8rem;
+    line-height: 22px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+.film-details p span{
+    font-weight: 600;
+}
+.details{
+    width: 50%;
+    padding-left: 15px;
+    margin-top: 12px;
+}
+.detail-container{
+    padding: 45px;
+    display: flex;
+}
+.reserver-btn{
+    margin-top: 50px;
+    padding: 10px 20px;
+    background:  #FBC115;
+    color: #1D1C1C;
+    outline: none;
+    border-radius: 8px;
+    transition: .4s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+}
