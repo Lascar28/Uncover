@@ -1,0 +1,38 @@
+.mes-reservations-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px $ombre;
+
+    h2{
+        font-size: 24px;
+        color: $grey1;
+        margin-bottom: 20px;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+    th, td{
+        border: 1px solid $white;
+        padding: 10px;
+        text-align: left;
+    }
+    th{
+        background-color: #f2f2f2;
+        color: #333;
+        font-weight: bold; 
+    }
+    td{
+        color: #666;
+    }
+    tbody tr:nth-child(even){
+        background-color: #f9f9f9;
+    }
+    tbody tr:hover{
+        background-color: #e9e9e9;
+    }
+}

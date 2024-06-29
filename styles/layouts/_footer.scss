@@ -1,0 +1,32 @@
+.footer{
+    background-color:  $background_navbar;
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+
+    .nav-footer{
+        display: flex;
+        width: 100%;
+
+        ul{
+            margin: 0 auto;
+        }
+        .logo{
+            height: 35px;
+            padding: 0 50px 0; 
+        }
+    }
+    .footer-logos{
+        display: flex;
+
+        .fab{
+            color: $white;
+            margin-right: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+        }
+    }
+}
+

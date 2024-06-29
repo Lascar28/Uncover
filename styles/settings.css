@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(../Fonts/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Lato";
+  src: url(../Fonts/Lato-Regular.ttf);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: Lato, sans-serif;
+  min-height: 100vh;
+  background: #0B0C0C;
+}/*# sourceMappingURL=settings.css.map */

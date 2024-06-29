@@ -1,0 +1,69 @@
+.form-connexion{
+    border: 1px solid $white;
+    padding: 35px;
+    width: 50%; 
+    border-radius: 8px;
+    margin: 20px auto;
+    box-shadow: -1px 2px 20px 9px $ombre;
+    -webkit-box-shadow: -1px 2px 20px 9px $ombre;
+    -moz-box-shadow: -1px 2px 20px 9px $ombre;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    h2{
+        color: $white;
+        text-align: center;
+    }
+        p{
+            color: #666;
+            text-align: left;
+            font-size: .8rem;
+            margin-top: 12px;
+
+            a{
+                color: $white;
+            }
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+
+            label {
+                margin-bottom: 8px;
+                font-weight: 600;
+                font-size: .8rem;
+                color: $white;
+            }
+
+            input[type="mail"], input[type="password"]{
+                padding: 8px;
+                margin-top: 8px;
+                margin-bottom: 12px;
+                border: 1px solid $white;
+                background: none;
+                border-radius: 4px;
+                font-size: 14px;
+                width: 100%;
+                padding: 12px;
+                color: $white;
+            }
+            input[type="submit"]{
+                background-color: $color;
+                color: $black;
+                font-weight: 700;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                
+                &:hover{
+                    box-shadow: 0 0 5px $color, 0 0 25px $color;
+                }
+            }
+        }
+}
+
+ 
+   

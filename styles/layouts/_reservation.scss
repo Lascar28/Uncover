@@ -1,0 +1,112 @@
+.reservation-container{
+    padding: 45px;
+    display: flex;
+
+    .film-details{
+        display: flex;
+        align-items: flex-start;
+
+        img{
+            width: 300px; 
+            height: 400px; 
+            padding: 15px;
+            object-fit: cover;             
+        }
+        h2{
+            font-family: $font1;
+            font-size: 2rem;
+            color:  $white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;  
+        }
+        p{
+            color:  $white;
+            font-size: .8rem;
+            line-height: 22px;
+            margin-top: 12px;
+
+            span{
+                font-weight: 600;
+            } 
+        }
+    }
+    .detail{
+        width: 50%;
+        padding-left: 15px;
+        margin-top: 12px;
+    }
+    .synopsis{
+        margin-top: 20px;
+    }
+    .form-reservation{
+        border: 1px solid  $white;
+        padding: 35px;
+        width: 50%; 
+        border-radius: 8px;
+        margin-top: 20px;
+
+        form{
+            display: flex;
+            flex-direction: column;
+
+            label{
+                margin-bottom: 10px;
+                font-weight: 600;
+                font-size: .8rem;
+                color:   $white;
+            }
+            input[type="number"], input[type="text"]{
+                padding: 8px;
+                margin-top: 10px;
+                margin-bottom: 15px;
+                border: 1px solid   $white;
+                background: none;
+                border-radius: 4px;
+                font-size: 14px;
+                width: 100%;
+                color:  $white;
+            }
+            input[type="submit"]{
+                background-color:  $color;
+                color: #1D1C1C;
+                font-weight: 700;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &:hover{
+                    box-shadow: 0 0 5px  $color, 0 0 25px  $color;
+                }
+            }
+        }
+        .select{
+            margin-bottom: 15px;
+
+            label{
+                display: block;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            select{
+                width: 100%;
+                padding: 8px;
+                border: 1px solid  $white;
+                border-radius: 4px;
+                background-color:  $white;
+                font-size: 16px;
+                
+                &:focus{
+                    border-color:  $color;
+                    box-shadow: 0 0 5px  $color(76, 175, 80, 0.5);
+                    outline: none;
+                }
+            }
+        }
+    }
+}
