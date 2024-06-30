@@ -34,71 +34,67 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['valider'])) {
             'image' => $film['image_url'],
             'film' => $film['titre'],
             'date' => $date_reservation,
+            'dateProjection' => $film['date_projection'],
             'heure' => $heure_projection,
             'places' => $nbrePersonne
         ];
 
-        require_once('./FPDF/fpdf.php'); 
+        require_once('./FPDF/fpdf.php');
         $pdf = new FPDF();
         $pdf->AddPage();
 
-        $imageWidth = 50; 
-        $imageHeight = 0; 
+        $pdf->Image('./Images/logo.png', 10, 10, 30);
         
-      // Titre du ticket de réservation
-    $pdf->SetFont('Arial', 'B', 14);
-    $pdf->Cell(0, 10, 'Ticket de Reservation', 0, 1, 'C');
-    $pdf->Ln(10);
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(0, 10, utf8_decode('Nº : ') . $reservation_enregistree, 0, 1, 'R');
+        $pdf->Line(10,40,200,40);
 
-    // Calcul de la largeur du tableau et positionnement centré
-    $tableWidth = 113; // Largeur totale des cellules
+        $pdf->Ln(10);
+        // Titre du ticket
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, utf8_decode('Ticket de Reservation'), 0, 1, 'C');
+        $pdf->Ln(10);
 
-    // Positionnement centré
-    $pdf->SetX(($pdf->GetPageWidth() - $tableWidth) / 2);
+        $pdf->SetFont('Arial', 'B', 10);
 
-    // Bordure supérieure du tableau
-    $pdf->Cell($tableWidth, 0, '', 'T');
-    $pdf->Ln();
+        // Film
+        $pdf->Cell(55, 7, 'Film', 1, 0, 'L');
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->Cell(58, 7, $reservationDetails['film'], 1, 1, 'L');
 
-    // Tableau de détails de réservation
-    $pdf->SetFont('Arial', 'B', 10);
+        // Date de projection
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(55, 7, 'Date de projection', 1, 0, 'L');
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->Cell(58, 7, $reservationDetails['dateProjection'], 1, 1, 'L');
 
-    // Première ligne : Film
-    $pdf->Cell(55, 7, 'Film :', 1, 0, 'L');
-    $pdf->SetFont('Arial', '', 10);
-    $pdf->Cell(58, 7, $reservationDetails['film'], 1, 1, 'L');
+        // Heure de projection
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(55, 7, 'Heure de projection', 1, 0, 'L');
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->Cell(58, 7, $reservationDetails['heure'], 1, 1, 'L');
 
-    // Deuxième ligne : Date de projection
-    $pdf->SetFont('Arial', 'B', 10);
-    $pdf->Cell(55, 7, 'Date de projection :', 1, 0, 'L');
-    $pdf->SetFont('Arial', '', 10);
-    $pdf->Cell(58, 7, $reservationDetails['date'], 1, 1, 'L');
+        // Nombre de places
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(55, 7, 'Nombre de places', 1, 0, 'L');
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->Cell(58, 7, $reservationDetails['places'], 1, 1, 'L');
+        $pdf->Line(10,90,200,90);
 
-    // Troisième ligne : Heure de projection
-    $pdf->SetFont('Arial', 'B', 10);
-    $pdf->Cell(55, 7, 'Heure de projection :', 1, 0, 'L');
-    $pdf->SetFont('Arial', '', 10);
-    $pdf->Cell(58, 7, $reservationDetails['heure'], 1, 1, 'L');
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(55, 7, 'Date de reservation', 1, 0, 'L');
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->Cell(58, 7, $reservationDetails['date'], 1, 1, 'L');
 
-    // Quatrième ligne : Nombre de places
-    $pdf->SetFont('Arial', 'B', 10);
-    $pdf->Cell(55, 7, 'Nombre de places :', 1, 0, 'L');
-    $pdf->SetFont('Arial', '', 10);
-    $pdf->Cell(58, 7, $reservationDetails['places'], 1, 1, 'L');
+        $pdf->Ln(10);
 
-    // Bordure inférieure du tableau
-    $pdf->Cell($tableWidth, 0, '', 'T');
-    $pdf->Ln();
+        $pdf->SetFont('Arial', 'I', 8);
+        $pdf->Cell(0, 10, 'Merci pour votre reservation!', 0, 1, 'C');
 
-    // Message de remerciement
-    $pdf->SetFont('Arial', 'I', 8);
-    $pdf->Cell(0, 10, 'Merci pour votre reservation!', 0, 1, 'C');
+        $pdfContent = $pdf->Output('S');
 
-
-        $pdfContent = $pdf->Output('S'); 
-        
         $ticketFilePath = './tickets/ticket_' . $reservation_enregistree . '.pdf';
-                file_put_contents($ticketFilePath, $pdfContent);
+        file_put_contents($ticketFilePath, $pdfContent);
 
         header("Location: index.php?page=succesReservation&id=$reservation_enregistree");
         exit();

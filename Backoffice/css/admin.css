@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../Fonts/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Lato';
+    src: url(../Fonts/Lato-Regular.ttf);
+}
+:root {
+    --main-bg-color: #020202;
+    --main-text-color: #FBC115;
+    --second-text-color: #666;
+    --second-bg-color: #1D1C1C;
+    --white-color: #E7E2D7;
+    --black-color: #1D1C1C;
+    --grey1-color: #333;
+    --grey2-color: #666;
+    --grey3-color: #5a5957;
+    --grey4-color: #ece4d1c5;
+    --card-bg-color: rgb(29, 28, 28);
+    --shadow-color: rgba(25,25,25,0.75);
+    --shadow-button-color: 0 0 5px #FBC115, 0 0 25px rgb(251, 193, 21);
+    --font1: 'Montserrat', sans-serif;
+    --font2: 'Lato', sans-serif;
+  }
+  
+  body {
+    font-family: var(--font1);
+  }
+  
+  .primary-text {
+    color: var(--white-color);
+  }
+  
+  .second-text {
+    color: var(--second-text-color);
+  }
+  
+  .primary-bg {
+    background-color: var(--main-bg-color);
+  }
+  
+  .secondary-bg {
+    background-color: var(--second-bg-color);
+  }
+  
+  .rounded-full {
+    border-radius: 100%;
+  }
+  
+  #wrapper {
+    overflow-x: hidden;
+    background-color: #0f0f0f;
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  #menu-toggle {
+    cursor: pointer;
+  }
+  
+  .list-group-item {
+    border: none;
+    padding: 20px 30px;
+  }
+  
+  .list-group-item.active {
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-weight: bold;
+    border: none;
+  }
+  
+  .navbar {
+    background-color: var(--background_navbar);
+  }
+  .navbar-nav .nav-link {
+    color: #E7E2D7 !important; /* Met le texte en blanc */
+}
+  .table {
+    color: var(--white-color);
+    background-color: var(--card-bg-color);
+  }
+  
+  .table th, .table td {
+    color: var(--white-color);
+  }
+  
+  .table-hover tbody tr:hover {
+    color: var(--main-text-color);
+    background-color: var(--grey3-color);
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }

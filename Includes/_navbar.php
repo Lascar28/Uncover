@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <li><a href="./index.php?page=Accueil">Accueil</a></li>
                 <li><a href="#programme">Programmes</a></li>
                 <li><a href="./index.php?page=mesReservations">Mes reservations</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="./Traitements/traitementDeconnexion.php"><span>Déconnexion</span></a></li>
                 <?php if (isset($_SESSION['prenom'])): ?>
             <li class="dropdown">

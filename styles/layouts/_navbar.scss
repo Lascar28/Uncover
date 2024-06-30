@@ -69,4 +69,19 @@ nav{
         height: 0;
         background: none;
     }
+    li a[href$="traitementDeconnexion.php"] {
+        &:hover {
+            color: $grey4 !important; 
+        }
+
+        &:before {
+            content: none; 
+        }
+
+    span {
+        &:hover {
+            color: $grey4 !important; 
+        }
+    }
+    }
 }

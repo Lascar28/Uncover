@@ -10,6 +10,7 @@ function detailFilms($id_projection) {
                 GROUP_CONCAT(projection_hours.heure_projection ORDER BY projection_hours.heure_projection SEPARATOR ' / ') AS heures_projection,
                 liste_film.titre,
                 liste_film.realisateur,
+                liste_film.prix,
                 liste_film.synopsis,
                 liste_film.acteurs,
                 liste_film.image_url,
@@ -31,6 +32,27 @@ function detailFilms($id_projection) {
     $film = $stmt->fetch(PDO::FETCH_ASSOC);
     
     return $film ?: array();
+}
+
+//FONCTION POUR RECUPERER LES FILMS EN SUGGESTIONS
+function obtenirSuggestionsFilms($id_projection_courant) {
+    global $db;
+    $sql = "SELECT 
+                projections.id_projection,
+                liste_film.titre,
+                liste_film.image_url
+            FROM 
+                projections
+            JOIN 
+                liste_film ON projections.id_film = liste_film.id_film
+            WHERE 
+                projections.id_projection != :id_projection_courant
+            LIMIT 4";  
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":id_projection_courant", $id_projection_courant, PDO::PARAM_INT);
+    $stmt->execute();
+    $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $films;
 }
 
 //FONCTION POUR ENREGISTRER UNE RESERVATION

@@ -19,16 +19,7 @@
         color: $white;
         max-width: 500px; 
         min-height: 400px;
-        opacity: 0;
-        transform: scaleX(-1);
-        animation: animHeader 2s forwards;
-
-        @keyframes animHeader {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+    
         h1{
             font-family: $font1;
             font-weight: bold;

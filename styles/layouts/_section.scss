@@ -50,11 +50,13 @@
     -webkit-box-shadow: -1px 2px 20px 9px $ombre;
     -moz-box-shadow: -1px 2px 20px 9px $ombre;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
 }
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
+
 .card img {
     width: 100%; 
     height: auto; 
@@ -88,7 +90,7 @@
     font-weight: 700;
 }
 .button .btn-reserver:hover{
-    box-shadow: 0 0 5px $color, 0 0 25px rgb(251, 193, 21);
+    box-shadow: $ombre_bouton;
     color: $black;
 }
 .button .btn-detail{

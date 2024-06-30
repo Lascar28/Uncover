@@ -94,6 +94,15 @@ nav .dropdown a::before {
   height: 0;
   background: none;
 }
+nav li a[href$="traitementDeconnexion.php"]:hover {
+  color: rgba(236, 228, 209, 0.7725490196) !important;
+}
+nav li a[href$="traitementDeconnexion.php"]:before {
+  content: none;
+}
+nav li a[href$="traitementDeconnexion.php"] span:hover {
+  color: rgba(236, 228, 209, 0.7725490196) !important;
+}
 
 .header {
   background: url(../Images/dune-banner.jpg) center/cover;
@@ -116,15 +125,6 @@ nav .dropdown a::before {
   color: #E7E2D7;
   max-width: 500px;
   min-height: 400px;
-  opacity: 0;
-  transform: scaleX(-1);
-  animation: animHeader 2s forwards;
-}
-@keyframes animHeader {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 .header #details h1 {
   font-family: Montserrat, sans-serif;
@@ -201,7 +201,6 @@ nav .dropdown a::before {
   -moz-box-shadow: -1px 2px 20px 9px rgba(25, 25, 25, 0.75);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -292,6 +291,9 @@ nav .dropdown a::before {
 .reservation-container .film-details p span {
   font-weight: 600;
 }
+.reservation-container .film-details p .price {
+  color: #FBC115;
+}
 .reservation-container .detail {
   width: 50%;
   padding-left: 15px;
@@ -366,6 +368,58 @@ nav .dropdown a::before {
   outline: none;
 }
 
+.suggestions-container {
+  padding: 25px;
+  margin: 20px auto;
+  z-index: -1;
+  max-width: 1000;
+}
+.suggestions-container h3 {
+  color: #E7E2D7;
+  margin-bottom: 30px;
+}
+
+.suggestions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.suggestion-card {
+  width: 300px;
+  margin: 10px;
+  background: rgb(29, 28, 28);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  gap: 10px;
+  box-shadow: -1px 2px 20px 9px rgba(25, 25, 25, 0.75);
+  -webkit-box-shadow: -1px 2px 20px 9px rgba(25, 25, 25, 0.75);
+  -moz-box-shadow: -1px 2px 20px 9px rgba(25, 25, 25, 0.75);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.suggestion-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.suggestion-card img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  padding: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.suggestion-card p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E7E2D7;
+}
+
 .detail-container {
   padding: 45px;
   display: flex;
@@ -417,6 +471,94 @@ nav .dropdown a::before {
   font-weight: 700;
 }
 
+.validation-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 45px auto;
+  padding: 20px;
+  border: 1px solid #666;
+  border-radius: 8px;
+  background-color: #E7E2D7;
+}
+.validation-container h2 {
+  color: #1D1C1C;
+  font-size: 1.5rem;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.validation-container h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(17, 153, 17);
+}
+.validation-container .mode_paiement {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.validation-container .mode_paiement div {
+  margin-right: 20px;
+}
+.validation-container .mode_paiement input[type=checkbox] {
+  display: none;
+}
+.validation-container .mode_paiement input[type=checkbox]:checked + label {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.validation-container .mode_paiement label {
+  display: flex;
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.validation-container .mode_paiement label img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.3s;
+}
+.validation-container label[for=telephone], .validation-container label[for=code], .validation-container p {
+  display: block;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.validation-container input[type=text] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  outline: none;
+}
+.validation-container input[type=submit] {
+  margin-top: 15px;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #FBC115;
+  color: #1D1C1C;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.validation-container input[type=submit]:hover {
+  box-shadow: 0 0 5px #FBC115, 0 0 25px rgb(251, 193, 21);
+}
+
 .mes-reservations-container {
   margin: 20px;
   padding: 20px;
@@ -460,11 +602,12 @@ nav .dropdown a::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  max-width: 600px;
+  margin: 45px auto;
   padding: 20px;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
+  border: 1px solid #666;
   border-radius: 8px;
+  background-color: #E7E2D7;
 }
 .succes-container .fas {
   font-size: 48px;
@@ -478,10 +621,16 @@ nav .dropdown a::before {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.succes-container p a {
+.succes-container a {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.succes-container p, .succes-container p a {
   color: #0d652d;
   text-decoration: none;
   font-weight: bold;
+  font-size: 0.8rem;
+  margin-top: 10px;
 }
 
 .form-connexion {
@@ -547,31 +696,72 @@ nav .dropdown a::before {
   box-shadow: 0 0 5px #FBC115, 0 0 25px #FBC115;
 }
 
-.footer {
+footer {
   background-color: #020202;
+}
+footer .footer {
   padding: 35px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
-.footer .nav-footer {
+footer .footer .nav-footer {
   display: flex;
-  width: 100%;
+  width: 70%;
 }
-.footer .nav-footer ul {
+footer .footer .nav-footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
+  padding: 0;
+  list-style: none;
 }
-.footer .nav-footer .logo {
-  height: 35px;
+footer .footer .nav-footer ul li {
+  margin-right: 20px;
+}
+footer .footer .nav-footer ul a {
+  color: #E7E2D7;
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+footer .footer .nav-footer ul a:hover {
+  color: #FBC115;
+}
+footer .footer .nav-footer .logo {
+  height: 30px;
   padding: 0 50px 0;
 }
-.footer .footer-logos {
+footer .footer .footer-logos {
   display: flex;
+  align-items: center;
 }
-.footer .footer-logos .fab {
+footer .footer .footer-logos .fab {
   color: #E7E2D7;
   margin-right: 30px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
+}
+footer .footer .footer-logos .fab:hover {
+  transform: scale(1.1);
+}
+footer .footer .footer-logos .fab .fab:last-child {
+  margin-right: 0;
+}
+footer #contact {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 12px;
+}
+footer #contact p {
+  margin: 5px 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #666;
 }/*# sourceMappingURL=main.css.map */

@@ -17,6 +17,7 @@ include("./Includes/_navbar.php");
 include("./Fonctions/fonctionReservation.php");
 
 $film = detailFilms($id_projection);
+$suggestions = obtenirSuggestionsFilms($id_projection);
 
 ?>
 
@@ -33,7 +34,19 @@ $film = detailFilms($id_projection);
             <a href="index.php?page=reserver&id=<?= $film['id_projection']; ?>" class="reserver-btn">Resérver</a>
         </div>
     </div>
-
+</div>
+<div class="suggestions-container">
+    <h3>Vous pourriez aussi aimer</h3>
+    <div class="suggestions">
+        <?php foreach ($suggestions as $suggestion) { ?>
+            <div class="suggestion-card">
+                <a href="index.php?page=detail&id=<?= $suggestion['id_projection']; ?>">
+                    <img src="<?= $suggestion['image_url']; ?>" alt="<?= $suggestion['titre']; ?>">
+                    <p><?= $suggestion['titre']; ?></p>
+                </a>
+            </div>
+        <?php } ?>
+    </div>
 </div>
 <?php include("./Includes/_footer.php"); ?>
 

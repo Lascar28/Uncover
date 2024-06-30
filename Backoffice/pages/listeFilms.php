@@ -1,6 +1,7 @@
 <?php
 include("./Traitements/traitementListeFilm.php");
 ?>
+
 <div class="container">
     <div class="row mt-4">
             <?php
@@ -24,17 +25,17 @@ include("./Traitements/traitementListeFilm.php");
     </thead>
     <tbody>
         <?php
-        if (!empty($films)) {
-            foreach ($films as $film) {
+        if (!empty($moovies)) {
+            foreach ($moovies as $moovie) {
         ?>
         <tr>
-            <td><?= $film['id_film'] ?></td>
-            <td><?= $film['titre'] ?></td>
-            <td><?= $film['categorie'] ?></td>
-            <td><?= $film['realisateur'] ?></td>
-            <td><?= $film['date_sortie'] ?></td>
-            <td><?= $film['duree'] ?></td>
-            <td><?= $film['prix'] ?></td>
+            <td><?= $moovie['id_film'] ?></td>
+            <td><?= $moovie['titre'] ?></td>
+            <td><?= $moovie['categorie'] ?></td>
+            <td><?= $moovie['realisateur'] ?></td>
+            <td><?= $moovie['date_sortie'] ?></td>
+            <td><?= $moovie['duree'] ?></td>
+            <td><?= $moovie['prix'] ?></td>
         </tr>
         <?php
             }
@@ -59,8 +60,8 @@ include("./Traitements/traitementListeFilm.php");
     </thead>
     <tbody>
         <?php
-        if (!empty($categories)) {
-            foreach ($categories as $categorie) {
+        if (!empty($category)) {
+            foreach ($category as $categorie) {
         ?>
         <tr>
             <td><?= $categorie['id_categorie'] ?></td>

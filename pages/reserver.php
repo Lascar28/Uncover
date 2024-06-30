@@ -21,7 +21,7 @@ if (!isset($_SESSION['email'])) {
     if (empty($film)) {
         echo "Aucune information trouvée pour cette projection.";
     } else {
-    
+        $suggestions = obtenirSuggestionsFilms($id_projection);
 ?>
 
 <div class="reservation-container">
@@ -30,9 +30,10 @@ if (!isset($_SESSION['email'])) {
         <div class="detail">
             <h2><?= $film['titre']; ?></h2>
             <p><span><?= date("l, j F", strtotime($film['date_projection'])); ?></span> à <?= $film['heures_projection']; ?></p>
-            <p><span>Genre :</span>Genre : <?= $film['nom_categorie']; ?></p>
-            <p><span>Réalisateur :</span> <?= $film['realisateur']; ?></p>
-            <p><span>Acteur :</span> <?= $film['acteurs']; ?></p>
+            <p><span>Genre : </span> <?= $film['nom_categorie']; ?></p>
+            <p><span>Réalisateur : </span> <?= $film['realisateur']; ?></p>
+            <p><span>Acteur : </span> <?= $film['acteurs']; ?></p>
+            <p><span class="price">Prix : <?= $film['prix'] . ' Ariary'; ?></span></p>
             <p class="synopsis"><?= $film['synopsis']; ?></p>
         </div>
     </div>
@@ -42,7 +43,7 @@ if (!isset($_SESSION['email'])) {
             <input type="hidden" name="id_projection" value="<?= $id_projection ?>">
             <div>
                 <label for="nbrePersonne">Nombre de personne :</label>
-                <input type="number" name="nbrePersonne" id="nbrePersonne" required>
+                <input type="number" name="nbrePersonne" id="nbrePersonne" min="0" required>
             </div>
             <div class="select">
                 <label for="heure_projection">Heure de projection :</label>
@@ -54,9 +55,20 @@ if (!isset($_SESSION['email'])) {
             </div>
             <input type="submit" name="reserver" value="Reserver">
         </form>
-
     </div>
-
+</div>
+<div class="suggestions-container">
+    <h3>Vous pourriez aussi aimer</h3>
+    <div class="suggestions">
+        <?php foreach ($suggestions as $suggestion) { ?>
+            <div class="suggestion-card">
+                <a href="index.php?page=detail&id=<?= $suggestion['id_projection']; ?>">
+                    <img src="<?= $suggestion['image_url']; ?>" alt="<?= $suggestion['titre']; ?>">
+                    <p><?= $suggestion['titre']; ?></p>
+                </a>
+            </div>
+        <?php } ?>
+    </div>
 </div>
 <?php
 }
